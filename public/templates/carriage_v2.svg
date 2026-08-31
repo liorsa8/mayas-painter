@@ -1,19 +1,14 @@
-<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-  <!-- Body -->
-  <circle cx="50" cy="45" r="30" fill="none" stroke="black" stroke-width="2"/>
-  <rect x="35" y="30" width="30" height="20" rx="5" fill="none" stroke="black" stroke-width="1.5"/>
-  <!-- Wheels -->
-  <circle cx="25" cy="80" r="12" fill="none" stroke="black" stroke-width="2"/>
-  <circle cx="25" cy="80" r="2" fill="black"/>
-  <path d="M25 68 L25 92 M13 80 L37 80" stroke="black" stroke-width="1"/>
-  
-  <circle cx="75" cy="80" r="12" fill="none" stroke="black" stroke-width="2"/>
-  <circle cx="75" cy="80" r="2" fill="black"/>
-  <path d="M75 68 L75 92 M63 80 L87 80" stroke="black" stroke-width="1"/>
-  
-  <!-- Connections -->
-  <path d="M25 80 L75 80 M50 75 L50 90" stroke="black" stroke-width="1.5"/>
-  <path d="M15 80 Q10 80 5 60 Q0 40 20 45" fill="none" stroke="black" stroke-width="1.5"/>
-  <!-- Crown on top -->
-  <path d="M45 15 L50 5 L55 15 Z" fill="none" stroke="black" stroke-width="1"/>
+<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5">
+  <path d="M24 42 C24 26 34 18 50 18 C66 18 76 26 76 42 L76 62 L24 62 Z"/>
+  <circle cx="50" cy="40" r="12" stroke-width="1.8"/>
+  <path d="M50 28 L50 52 M38 40 L62 40" stroke-width="1.2"/>
+  <path d="M22 42 L78 42" stroke-width="1.6"/>
+  <path d="M40 18 Q50 10 60 18" stroke-width="1.6"/>
+  <path d="M18 62 L82 62 L78 74 L22 74 Z"/>
+  <circle cx="32" cy="80" r="14"/>
+  <circle cx="68" cy="80" r="14"/>
+  <circle cx="32" cy="80" r="3" fill="black" stroke="none"/>
+  <circle cx="68" cy="80" r="3" fill="black" stroke="none"/>
+  <path d="M32 68 L32 92 M20 80 L44 80 M23 71 L41 89 M23 89 L41 71" stroke-width="1.1"/>
+  <path d="M68 68 L68 92 M56 80 L80 80 M59 71 L77 89 M59 89 L77 71" stroke-width="1.1"/>
 </svg>

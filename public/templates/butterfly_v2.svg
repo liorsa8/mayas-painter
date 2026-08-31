@@ -1,19 +1,14 @@
-<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-  <!-- Body -->
-  <ellipse cx="50" cy="50" rx="3" ry="25" fill="none" stroke="black" stroke-width="1.5"/>
-  <circle cx="50" cy="25" r="5" fill="none" stroke="black" stroke-width="1.5"/>
-  <path d="M48 20 Q40 10 35 15 M52 20 Q60 10 65 15" fill="none" stroke="black" stroke-width="1"/>
-  
-  <!-- Left Wings -->
-  <path d="M47 35 C20 10 5 30 10 50 C15 70 45 65 47 60" fill="none" stroke="black" stroke-width="1.5"/>
-  <path d="M47 62 C25 65 10 85 25 90 C40 95 47 80 47 75" fill="none" stroke="black" stroke-width="1.5"/>
-  
-  <!-- Right Wings -->
-  <path d="M53 35 C80 10 95 30 90 50 C85 70 55 65 53 60" fill="none" stroke="black" stroke-width="1.5"/>
-  <path d="M53 62 C75 65 90 85 75 90 C60 95 53 80 53 75" fill="none" stroke="black" stroke-width="1.5"/>
-  
-  <!-- Wing Details -->
-  <circle cx="25" cy="40" r="5" fill="none" stroke="black" stroke-width="0.8"/>
-  <circle cx="75" cy="40" r="5" fill="none" stroke="black" stroke-width="0.8"/>
-  <path d="M20 75 Q30 80 35 75 M80 75 Q70 80 65 75" fill="none" stroke="black" stroke-width="0.8"/>
+<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5">
+  <path d="M50 22 C48 22 47 26 47 32 L47 70 C47 76 48 80 50 80 C52 80 53 76 53 70 L53 32 C53 26 52 22 50 22 Z" stroke-width="2"/>
+  <path d="M48 24 Q42 14 36 12 M52 24 Q58 14 64 12" stroke-width="1.4"/>
+  <circle cx="36" cy="12" r="1.6" fill="black" stroke="none"/>
+  <circle cx="64" cy="12" r="1.6" fill="black" stroke="none"/>
+  <path d="M47 34 C30 18 8 22 6 40 C4 56 22 60 47 48 Z"/>
+  <path d="M53 34 C70 18 92 22 94 40 C96 56 78 60 53 48 Z"/>
+  <path d="M47 50 C32 44 14 50 14 64 C14 76 30 78 47 64 Z"/>
+  <path d="M53 50 C68 44 86 50 86 64 C86 76 70 78 53 64 Z"/>
+  <circle cx="24" cy="38" r="5" stroke-width="1.2"/>
+  <circle cx="76" cy="38" r="5" stroke-width="1.2"/>
+  <circle cx="28" cy="62" r="4" stroke-width="1.2"/>
+  <circle cx="72" cy="62" r="4" stroke-width="1.2"/>
 </svg>

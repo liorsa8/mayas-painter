@@ -1,18 +1,16 @@
-<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-  <!-- Body -->
-  <path d="M40 70 C20 70 10 55 10 40 C10 25 25 15 40 15 C55 15 70 25 70 40 C70 55 60 70 40 70 Z" fill="none" stroke="black" stroke-width="1.5"/>
-  <!-- Ears -->
-  <path d="M25 20 L25 5 L35 15 M55 20 L55 5 L45 15" fill="none" stroke="black" stroke-width="1.5"/>
-  <!-- Eyes -->
-  <circle cx="30" cy="40" r="10" fill="none" stroke="black" stroke-width="1"/>
-  <circle cx="50" cy="40" r="10" fill="none" stroke="black" stroke-width="1"/>
-  <circle cx="32" cy="42" r="2.5" fill="black"/>
-  <circle cx="48" cy="42" r="2.5" fill="black"/>
-  <!-- Nose/Mouth -->
-  <path d="M38 52 Q40 55 42 52" fill="none" stroke="black" stroke-width="1.5"/>
-  <path d="M40 55 L40 60 Q40 65 35 65 M40 60 Q40 65 45 65" fill="none" stroke="black" stroke-width="1.2"/>
-  <!-- Whiskers -->
-  <path d="M15 45 L5 42 M15 50 L5 50 M15 55 L5 58 M65 45 L75 42 M65 50 L75 50 M65 55 L75 58" stroke="black" stroke-width="0.8"/>
-  <!-- Tail -->
-  <path d="M70 45 Q90 30 85 60 Q80 80 70 70" fill="none" stroke="black" stroke-width="1.5"/>
+<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5">
+  <path d="M32 30 L26 12 L42 24 Z"/>
+  <path d="M68 30 L74 12 L58 24 Z"/>
+  <path d="M32 26 L29 16 L38 23" stroke-width="1.2"/>
+  <path d="M68 26 L71 16 L62 23" stroke-width="1.2"/>
+  <circle cx="50" cy="42" r="22"/>
+  <path d="M38 40 Q42 36 46 40" stroke-width="1.8"/>
+  <path d="M54 40 Q58 36 62 40" stroke-width="1.8"/>
+  <path d="M50 46 L47 49 Q50 52 53 49 Z" fill="black" stroke="none"/>
+  <path d="M50 52 Q46 57 40 54 M50 52 Q54 57 60 54" stroke-width="1.6"/>
+  <path d="M30 46 L14 44 M30 50 L14 50 M30 54 L14 56" stroke-width="1.2"/>
+  <path d="M70 46 L86 44 M70 50 L86 50 M70 54 L86 56" stroke-width="1.2"/>
+  <path d="M28 88 C26 66 36 62 50 62 C64 62 74 66 72 88" stroke-width="2.5"/>
+  <path d="M22 92 Q50 100 78 92" stroke-width="2.5"/>
+  <path d="M74 82 Q92 78 90 60 Q89 50 80 52" stroke-width="2.5"/>
 </svg>

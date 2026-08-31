@@ -1,17 +1,14 @@
-<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-  <!-- Body -->
-  <path d="M50 20 C35 20 25 35 25 55 C25 80 35 90 50 90 C65 90 75 80 75 55 C75 35 65 20 50 20 Z" fill="none" stroke="black" stroke-width="1.5"/>
-  <!-- Ears -->
-  <path d="M30 25 L20 15 L35 22 M70 25 L80 15 L65 22" fill="none" stroke="black" stroke-width="1.5"/>
-  <!-- Eyes -->
-  <circle cx="40" cy="45" r="10" fill="none" stroke="black" stroke-width="1.2"/>
-  <circle cx="60" cy="45" r="10" fill="none" stroke="black" stroke-width="1.2"/>
-  <circle cx="40" cy="45" r="3" fill="black"/>
-  <circle cx="60" cy="45" r="3" fill="black"/>
-  <!-- Beak -->
-  <path d="M48 55 L52 55 L50 62 Z" fill="black"/>
-  <!-- Wings -->
-  <path d="M26 40 Q15 60 26 80 M74 40 Q85 60 74 80" fill="none" stroke="black" stroke-width="1.2"/>
-  <!-- Belly -->
-  <path d="M40 70 Q50 65 60 70 M42 75 Q50 72 58 75 M44 80 Q50 78 56 80" fill="none" stroke="black" stroke-width="0.8"/>
+<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5">
+  <path d="M34 22 L28 8 L42 18 Z"/>
+  <path d="M66 22 L72 8 L58 18 Z"/>
+  <path d="M50 16 C70 16 82 34 82 54 C82 76 68 92 50 92 C32 92 18 76 18 54 C18 34 30 16 50 16 Z"/>
+  <circle cx="38" cy="48" r="12" stroke-width="2"/>
+  <circle cx="62" cy="48" r="12" stroke-width="2"/>
+  <circle cx="38" cy="48" r="4" fill="black" stroke="none"/>
+  <circle cx="62" cy="48" r="4" fill="black" stroke="none"/>
+  <path d="M50 58 L44 68 L56 68 Z"/>
+  <path d="M20 60 Q14 76 24 88" stroke-width="1.8"/>
+  <path d="M80 60 Q86 76 76 88" stroke-width="1.8"/>
+  <path d="M38 76 Q50 82 62 76" stroke-width="1.4"/>
+  <path d="M42 84 Q50 88 58 84" stroke-width="1.4"/>
 </svg>

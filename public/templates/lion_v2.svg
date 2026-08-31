@@ -1,16 +1,10 @@
-<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-  <!-- Mane -->
-  <path d="M50 10 L60 5 L70 12 L85 8 L82 25 L95 35 L85 45 L90 65 L75 70 L70 85 L50 80 L30 85 L25 70 L10 65 L15 45 L5 35 L18 25 L15 8 L30 12 L40 5 Z" fill="none" stroke="black" stroke-width="1.8"/>
-  <!-- Face -->
-  <circle cx="50" cy="45" r="22" fill="none" stroke="black" stroke-width="1.5"/>
-  <!-- Eyes -->
-  <circle cx="42" cy="40" r="3" fill="none" stroke="black" stroke-width="1.2"/>
-  <circle cx="58" cy="40" r="3" fill="none" stroke="black" stroke-width="1.2"/>
-  <circle cx="43" cy="41" r="1.5" fill="black"/>
-  <circle cx="57" cy="41" r="1.5" fill="black"/>
-  <!-- Nose/Mouth -->
-  <path d="M46 52 L54 52 L50 58 Z" fill="black"/>
-  <path d="M50 58 L50 64 Q50 68 45 68 M50 64 Q50 68 55 68" fill="none" stroke="black" stroke-width="1.2"/>
-  <!-- Whiskers -->
-  <path d="M35 55 L25 55 M35 58 L25 60 M65 55 L75 55 M65 58 L75 60" stroke="black" stroke-width="0.8"/>
+<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5">
+  <path d="M50 10 C70 10 88 26 88 48 C88 70 70 86 50 86 C30 86 12 70 12 48 C12 26 30 10 50 10 Z" stroke-width="1.6"/>
+  <path d="M50 14 L50 6 M64 16 L70 8 M76 26 L84 20 M84 40 L92 36 M84 56 L92 60 M76 70 L84 76 M64 80 L70 88 M50 82 L50 90 M36 80 L30 88 M24 70 L16 76 M16 56 L8 60 M16 40 L8 36 M24 26 L16 20 M36 16 L30 8" stroke-width="1.6"/>
+  <circle cx="50" cy="48" r="22"/>
+  <circle cx="42" cy="44" r="2.8" fill="black" stroke="none"/>
+  <circle cx="58" cy="44" r="2.8" fill="black" stroke="none"/>
+  <ellipse cx="50" cy="56" rx="10" ry="7"/>
+  <ellipse cx="50" cy="52" rx="4" ry="3" fill="black" stroke="none"/>
+  <path d="M50 55 L50 59 M50 59 Q45 63 40 60 M50 59 Q55 63 60 60" stroke-width="1.6"/>
 </svg>

@@ -1,17 +1,11 @@
-<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-  <!-- Body/Torso -->
-  <path d="M50 40 L45 60 L55 60 Z" fill="none" stroke="black" stroke-width="1.5"/>
-  <!-- Head -->
-  <circle cx="50" cy="30" r="10" fill="none" stroke="black" stroke-width="1.5"/>
-  <!-- Hair -->
-  <path d="M52 20 Q70 20 65 60 Q60 80 50 60 M48 20 Q30 20 35 60 Q40 80 50 60" fill="none" stroke="black" stroke-width="1.2"/>
-  <!-- Tail -->
-  <path d="M45 60 C40 80 45 95 60 95 C75 95 85 85 80 70 C75 55 60 60 55 60" fill="none" stroke="black" stroke-width="1.8"/>
-  <!-- Fin -->
-  <path d="M60 95 Q70 90 85 95 Q80 100 60 95 M60 95 Q50 90 35 95 Q40 100 60 95" fill="none" stroke="black" stroke-width="1.8"/>
-  <!-- Scales -->
-  <path d="M55 75 Q60 72 65 75 M60 82 Q65 79 70 82" fill="none" stroke="black" stroke-width="0.8"/>
-  <!-- Face -->
-  <circle cx="47" cy="30" r="1" fill="black"/>
-  <circle cx="53" cy="30" r="1" fill="black"/>
+<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5">
+  <path d="M34 26 C30 14 38 6 50 6 C62 6 70 14 66 26 C68 40 62 48 58 42 C56 52 50 54 50 54 C50 54 44 52 42 42 C38 48 32 40 34 26 Z" stroke-width="1.8"/>
+  <circle cx="50" cy="26" r="13"/>
+  <circle cx="45" cy="26" r="1.6" fill="black" stroke="none"/>
+  <circle cx="55" cy="26" r="1.6" fill="black" stroke="none"/>
+  <path d="M46 32 Q50 34 54 32" stroke-width="1.4"/>
+  <path d="M40 40 Q28 46 26 56" stroke-width="1.8"/>
+  <path d="M60 40 Q72 46 74 56" stroke-width="1.8"/>
+  <path d="M40 36 Q34 48 42 54 Q28 60 26 70 Q22 82 34 90 Q42 92 50 80 Q58 92 66 90 Q78 82 74 70 Q72 60 58 54 Q66 48 60 36 Z"/>
+  <path d="M40 62 Q50 58 60 62 M38 72 Q50 68 62 72" stroke-width="1.2"/>
 </svg>

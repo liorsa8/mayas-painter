@@ -1,18 +1,14 @@
-<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-  <!-- Head -->
-  <path d="M50 15 C35 15 25 30 25 45 C25 65 35 75 50 85 C65 75 75 65 75 45 C75 30 65 15 50 15 Z" fill="none" stroke="black" stroke-width="1.5"/>
-  <!-- Ears -->
-  <path d="M28 25 Q15 15 15 35 Q15 50 25 45" fill="none" stroke="black" stroke-width="1.5"/>
-  <path d="M72 25 Q85 15 85 35 Q85 50 75 45" fill="none" stroke="black" stroke-width="1.5"/>
-  <!-- Eyes -->
-  <circle cx="40" cy="40" r="4" fill="none" stroke="black" stroke-width="1"/>
-  <circle cx="40" cy="40" r="1.5" fill="black"/>
-  <circle cx="60" cy="40" r="4" fill="none" stroke="black" stroke-width="1"/>
-  <circle cx="60" cy="40" r="1.5" fill="black"/>
-  <!-- Nose & Mouth -->
-  <path d="M45 55 L55 55 L50 60 Z" fill="black"/>
-  <path d="M50 60 L50 68 Q50 75 42 75 M50 68 Q50 75 58 75" fill="none" stroke="black" stroke-width="1.2"/>
-  <!-- Details -->
-  <path d="M35 25 Q40 20 50 20 Q60 20 65 25" fill="none" stroke="black" stroke-width="0.8" stroke-dasharray="2,2"/>
-  <path d="M40 78 C45 78 55 78 60 78" fill="none" stroke="black" stroke-width="1" opacity="0.4"/>
+<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="black" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5">
+  <path d="M35 28 C22 30 14 45 20 62 C24 70 33 68 34 58 C35 48 34 36 35 28 Z"/>
+  <path d="M65 28 C78 30 86 45 80 62 C76 70 67 68 66 58 C65 48 66 36 65 28 Z"/>
+  <circle cx="50" cy="46" r="24"/>
+  <ellipse cx="50" cy="56" rx="13" ry="10"/>
+  <circle cx="41" cy="42" r="3.2" fill="black" stroke="none"/>
+  <circle cx="59" cy="42" r="3.2" fill="black" stroke="none"/>
+  <ellipse cx="50" cy="52" rx="4" ry="3" fill="black" stroke="none"/>
+  <path d="M50 55 L50 60 M50 60 Q44 65 39 61 M50 60 Q56 65 61 61" stroke-width="1.6"/>
+  <path d="M28 78 C28 62 38 58 50 58 C62 58 72 62 72 78 C72 90 60 94 50 94 C40 94 28 90 28 78 Z"/>
+  <path d="M38 90 L38 96 M62 90 L62 96" stroke-width="2"/>
+  <path d="M72 74 Q85 70 84 58" stroke-width="2.5"/>
+  <path d="M28 70 Q22 62 28 55" stroke-width="1.3"/>
 </svg>
