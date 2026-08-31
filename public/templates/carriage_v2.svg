@@ -1,0 +1,19 @@
+<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+  <!-- Body -->
+  <circle cx="50" cy="45" r="30" fill="none" stroke="black" stroke-width="2"/>
+  <rect x="35" y="30" width="30" height="20" rx="5" fill="none" stroke="black" stroke-width="1.5"/>
+  <!-- Wheels -->
+  <circle cx="25" cy="80" r="12" fill="none" stroke="black" stroke-width="2"/>
+  <circle cx="25" cy="80" r="2" fill="black"/>
+  <path d="M25 68 L25 92 M13 80 L37 80" stroke="black" stroke-width="1"/>
+  
+  <circle cx="75" cy="80" r="12" fill="none" stroke="black" stroke-width="2"/>
+  <circle cx="75" cy="80" r="2" fill="black"/>
+  <path d="M75 68 L75 92 M63 80 L87 80" stroke="black" stroke-width="1"/>
+  
+  <!-- Connections -->
+  <path d="M25 80 L75 80 M50 75 L50 90" stroke="black" stroke-width="1.5"/>
+  <path d="M15 80 Q10 80 5 60 Q0 40 20 45" fill="none" stroke="black" stroke-width="1.5"/>
+  <!-- Crown on top -->
+  <path d="M45 15 L50 5 L55 15 Z" fill="none" stroke="black" stroke-width="1"/>
+</svg>

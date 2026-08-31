@@ -1,0 +1,14 @@
+<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+  <!-- Shell -->
+  <path d="M20 60 C20 30 80 30 80 60 L20 60" fill="none" stroke="black" stroke-width="2"/>
+  <path d="M35 60 Q35 45 50 40 Q65 45 65 60 M50 40 L50 35 M25 50 L35 45 M75 50 L65 45" stroke="black" stroke-width="1.2"/>
+  <!-- Pattern on shell -->
+  <path d="M40 50 L50 45 L60 50 L55 60 L45 60 Z" fill="none" stroke="black" stroke-width="1"/>
+  <!-- Head -->
+  <path d="M80 60 Q95 60 95 50 Q95 40 85 40 Q75 40 75 50" fill="none" stroke="black" stroke-width="2"/>
+  <circle cx="88" cy="45" r="1.5" fill="black"/>
+  <!-- Legs -->
+  <path d="M30 60 Q25 75 35 75 M65 60 Q70 75 60 75 M15 60 Q10 70 20 70" fill="none" stroke="black" stroke-width="2"/>
+  <!-- Tail -->
+  <path d="M20 60 L10 65" stroke="black" stroke-width="2"/>
+</svg>

@@ -1,0 +1,18 @@
+<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+  <!-- Head -->
+  <path d="M50 15 C35 15 25 30 25 45 C25 65 35 75 50 85 C65 75 75 65 75 45 C75 30 65 15 50 15 Z" fill="none" stroke="black" stroke-width="1.5"/>
+  <!-- Ears -->
+  <path d="M28 25 Q15 15 15 35 Q15 50 25 45" fill="none" stroke="black" stroke-width="1.5"/>
+  <path d="M72 25 Q85 15 85 35 Q85 50 75 45" fill="none" stroke="black" stroke-width="1.5"/>
+  <!-- Eyes -->
+  <circle cx="40" cy="40" r="4" fill="none" stroke="black" stroke-width="1"/>
+  <circle cx="40" cy="40" r="1.5" fill="black"/>
+  <circle cx="60" cy="40" r="4" fill="none" stroke="black" stroke-width="1"/>
+  <circle cx="60" cy="40" r="1.5" fill="black"/>
+  <!-- Nose & Mouth -->
+  <path d="M45 55 L55 55 L50 60 Z" fill="black"/>
+  <path d="M50 60 L50 68 Q50 75 42 75 M50 68 Q50 75 58 75" fill="none" stroke="black" stroke-width="1.2"/>
+  <!-- Details -->
+  <path d="M35 25 Q40 20 50 20 Q60 20 65 25" fill="none" stroke="black" stroke-width="0.8" stroke-dasharray="2,2"/>
+  <path d="M40 78 C45 78 55 78 60 78" fill="none" stroke="black" stroke-width="1" opacity="0.4"/>
+</svg>

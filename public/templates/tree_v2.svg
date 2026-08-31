@@ -1,0 +1,14 @@
+<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+  <!-- Trunk -->
+  <path d="M45 90 L42 60 Q50 63 58 60 L55 90 Z" fill="none" stroke="black" stroke-width="2"/>
+  <!-- Canopy -->
+  <path d="M50 10 Q30 10 20 25 Q10 40 20 55 Q30 70 50 70 Q70 70 80 55 Q90 40 80 25 Q70 10 50 10 Z" fill="none" stroke="black" stroke-width="2"/>
+  <!-- Details in Canopy -->
+  <path d="M40 30 Q50 25 60 30 M30 45 Q50 35 70 45 M40 55 Q50 50 60 55" fill="none" stroke="black" stroke-width="1.2"/>
+  <!-- Apples/Fruit -->
+  <circle cx="35" cy="25" r="3" fill="none" stroke="black" stroke-width="1"/>
+  <circle cx="65" cy="25" r="3" fill="none" stroke="black" stroke-width="1"/>
+  <circle cx="50" cy="45" r="3" fill="none" stroke="black" stroke-width="1"/>
+  <circle cx="30" cy="50" r="3" fill="none" stroke="black" stroke-width="1"/>
+  <circle cx="70" cy="50" r="3" fill="none" stroke="black" stroke-width="1"/>
+</svg>

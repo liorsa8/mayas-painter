@@ -1,0 +1,15 @@
+<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+  <!-- Body -->
+  <path d="M70 40 C60 20 30 20 20 40 C10 60 20 80 40 85 C60 90 85 75 90 50 C90 40 80 40 70 40 Z" fill="none" stroke="black" stroke-width="1.5"/>
+  <!-- Head -->
+  <circle cx="75" cy="35" r="15" fill="none" stroke="black" stroke-width="1.5"/>
+  <!-- Beak -->
+  <path d="M88 35 L98 38 L88 41 Z" fill="none" stroke="black" stroke-width="1.5"/>
+  <!-- Eye -->
+  <circle cx="80" cy="32" r="2" fill="black"/>
+  <!-- Wing -->
+  <path d="M40 50 C30 50 20 60 25 75 C30 85 55 80 60 65" fill="none" stroke="black" stroke-width="1.2"/>
+  <path d="M35 60 Q45 55 55 60" fill="none" stroke="black" stroke-width="0.8"/>
+  <!-- Legs -->
+  <path d="M45 86 L45 95 M55 86 L55 95" stroke="black" stroke-width="1.5"/>
+</svg>

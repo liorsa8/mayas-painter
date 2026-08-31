@@ -1,0 +1,16 @@
+<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+  <!-- Body -->
+  <path d="M10 50 C20 20 60 20 80 50 C60 80 20 80 10 50" fill="none" stroke="black" stroke-width="1.5"/>
+  <!-- Tail -->
+  <path d="M80 50 L95 30 L90 50 L95 70 Z" fill="none" stroke="black" stroke-width="1.5"/>
+  <!-- Fins -->
+  <path d="M40 32 Q50 15 65 30" fill="none" stroke="black" stroke-width="1.2"/>
+  <path d="M40 68 Q50 85 65 70" fill="none" stroke="black" stroke-width="1.2"/>
+  <!-- Gill -->
+  <path d="M30 35 Q35 50 30 65" fill="none" stroke="black" stroke-width="1.2"/>
+  <!-- Eye -->
+  <circle cx="22" cy="45" r="3" fill="none" stroke="black" stroke-width="1"/>
+  <circle cx="22" cy="45" r="1" fill="black"/>
+  <!-- Scales -->
+  <path d="M45 45 Q48 48 51 45 M55 50 Q58 53 61 50" fill="none" stroke="black" stroke-width="0.5"/>
+</svg>

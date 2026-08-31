@@ -1,0 +1,19 @@
+<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+  <!-- Main building -->
+  <rect x="35" y="50" width="30" height="30" fill="none" stroke="black" stroke-width="1.5"/>
+  <!-- Towers -->
+  <rect x="25" y="40" width="10" height="40" fill="none" stroke="black" stroke-width="1.5"/>
+  <rect x="65" y="40" width="10" height="40" fill="none" stroke="black" stroke-width="1.5"/>
+  <!-- Roofs -->
+  <path d="M22 40 L30 15 L38 40 Z" fill="none" stroke="black" stroke-width="1.5"/>
+  <path d="M62 40 L70 15 L78 40 Z" fill="none" stroke="black" stroke-width="1.5"/>
+  <path d="M35 50 L50 35 L65 50 Z" fill="none" stroke="black" stroke-width="1.5"/>
+  <!-- Door -->
+  <path d="M45 80 L45 65 Q50 60 55 65 L55 80" fill="none" stroke="black" stroke-width="1.5"/>
+  <!-- Windows -->
+  <rect x="28" y="50" width="4" height="6" rx="2" fill="none" stroke="black" stroke-width="1"/>
+  <rect x="68" y="50" width="4" height="6" rx="2" fill="none" stroke="black" stroke-width="1"/>
+  <rect x="48" y="42" width="4" height="6" rx="2" fill="none" stroke="black" stroke-width="1"/>
+  <!-- Flag -->
+  <path d="M50 35 L50 25 L60 30 L50 35" fill="none" stroke="black" stroke-width="1"/>
+</svg>

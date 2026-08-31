@@ -1,0 +1,19 @@
+<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+  <!-- Body -->
+  <ellipse cx="50" cy="50" rx="3" ry="25" fill="none" stroke="black" stroke-width="1.5"/>
+  <circle cx="50" cy="25" r="5" fill="none" stroke="black" stroke-width="1.5"/>
+  <path d="M48 20 Q40 10 35 15 M52 20 Q60 10 65 15" fill="none" stroke="black" stroke-width="1"/>
+  
+  <!-- Left Wings -->
+  <path d="M47 35 C20 10 5 30 10 50 C15 70 45 65 47 60" fill="none" stroke="black" stroke-width="1.5"/>
+  <path d="M47 62 C25 65 10 85 25 90 C40 95 47 80 47 75" fill="none" stroke="black" stroke-width="1.5"/>
+  
+  <!-- Right Wings -->
+  <path d="M53 35 C80 10 95 30 90 50 C85 70 55 65 53 60" fill="none" stroke="black" stroke-width="1.5"/>
+  <path d="M53 62 C75 65 90 85 75 90 C60 95 53 80 53 75" fill="none" stroke="black" stroke-width="1.5"/>
+  
+  <!-- Wing Details -->
+  <circle cx="25" cy="40" r="5" fill="none" stroke="black" stroke-width="0.8"/>
+  <circle cx="75" cy="40" r="5" fill="none" stroke="black" stroke-width="0.8"/>
+  <path d="M20 75 Q30 80 35 75 M80 75 Q70 80 65 75" fill="none" stroke="black" stroke-width="0.8"/>
+</svg>

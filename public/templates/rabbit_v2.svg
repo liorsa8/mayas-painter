@@ -1,0 +1,19 @@
+<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+  <!-- Body -->
+  <path d="M50 85 C30 85 20 70 20 50 C20 35 35 25 50 25 C65 25 80 35 80 50 C80 70 70 85 50 85 Z" fill="none" stroke="black" stroke-width="1.5"/>
+  <!-- Ears -->
+  <path d="M40 28 L35 5 Q35 0 42 2 L48 25 M60 28 L65 5 Q65 0 58 2 L52 25" fill="none" stroke="black" stroke-width="1.8"/>
+  <path d="M38 20 Q40 10 42 20 M62 20 Q60 10 58 20" fill="none" stroke="black" stroke-width="0.8"/>
+  <!-- Eyes -->
+  <circle cx="40" cy="45" r="3" fill="none" stroke="black" stroke-width="1.2"/>
+  <circle cx="60" cy="45" r="3" fill="none" stroke="black" stroke-width="1.2"/>
+  <circle cx="41.5" cy="46" r="1" fill="black"/>
+  <circle cx="58.5" cy="46" r="1" fill="black"/>
+  <!-- Nose/Mouth -->
+  <circle cx="50" cy="55" r="2" fill="none" stroke="black" stroke-width="1"/>
+  <path d="M45 62 Q50 65 55 62" fill="none" stroke="black" stroke-width="1"/>
+  <!-- Whiskers -->
+  <path d="M30 55 L15 52 M30 58 L15 58 M70 55 L85 52 M70 58 L85 58" stroke="black" stroke-width="0.7"/>
+  <!-- Feet -->
+  <path d="M35 85 Q40 95 30 95 M65 85 Q60 95 70 95" fill="none" stroke="black" stroke-width="1.5"/>
+</svg>

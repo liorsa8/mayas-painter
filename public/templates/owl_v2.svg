@@ -1,0 +1,17 @@
+<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+  <!-- Body -->
+  <path d="M50 20 C35 20 25 35 25 55 C25 80 35 90 50 90 C65 90 75 80 75 55 C75 35 65 20 50 20 Z" fill="none" stroke="black" stroke-width="1.5"/>
+  <!-- Ears -->
+  <path d="M30 25 L20 15 L35 22 M70 25 L80 15 L65 22" fill="none" stroke="black" stroke-width="1.5"/>
+  <!-- Eyes -->
+  <circle cx="40" cy="45" r="10" fill="none" stroke="black" stroke-width="1.2"/>
+  <circle cx="60" cy="45" r="10" fill="none" stroke="black" stroke-width="1.2"/>
+  <circle cx="40" cy="45" r="3" fill="black"/>
+  <circle cx="60" cy="45" r="3" fill="black"/>
+  <!-- Beak -->
+  <path d="M48 55 L52 55 L50 62 Z" fill="black"/>
+  <!-- Wings -->
+  <path d="M26 40 Q15 60 26 80 M74 40 Q85 60 74 80" fill="none" stroke="black" stroke-width="1.2"/>
+  <!-- Belly -->
+  <path d="M40 70 Q50 65 60 70 M42 75 Q50 72 58 75 M44 80 Q50 78 56 80" fill="none" stroke="black" stroke-width="0.8"/>
+</svg>
