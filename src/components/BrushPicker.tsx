@@ -8,6 +8,13 @@ interface BrushPickerProps {
   setBrushSize: (size: number) => void;
 }
 
+const getIndexFromPointerX = (e: React.PointerEvent, target: HTMLElement) => {
+  const rect = target.getBoundingClientRect();
+  const x = e.clientX - rect.left;
+  const percentage = Math.max(0, Math.min(1, x / rect.width));
+  return Math.round(percentage * (BRUSH_SIZES.length - 1));
+};
+
 export const BrushPicker: React.FC<BrushPickerProps> = ({ brushSize, setBrushSize }) => {
   return (
     <div className="flex items-center gap-3 sm:gap-4 border-t border-gray-50 pt-4 px-4" dir="ltr">
@@ -20,10 +27,7 @@ export const BrushPicker: React.FC<BrushPickerProps> = ({ brushSize, setBrushSiz
       <div 
         className="flex-1 relative flex items-center justify-between px-2 touch-none h-12"
         onPointerDown={(e) => {
-          const rect = e.currentTarget.getBoundingClientRect();
-          const x = e.clientX - rect.left;
-          const percentage = Math.max(0, Math.min(1, x / rect.width));
-          const index = Math.round(percentage * (BRUSH_SIZES.length - 1));
+          const index = getIndexFromPointerX(e, e.currentTarget);
           if (index >= 0 && index < BRUSH_SIZES.length) {
             setBrushSize(BRUSH_SIZES[index].size);
             (e.target as HTMLElement).releasePointerCapture(e.pointerId);
@@ -31,10 +35,7 @@ export const BrushPicker: React.FC<BrushPickerProps> = ({ brushSize, setBrushSiz
         }}
         onPointerMove={(e) => {
           if (e.buttons !== 1) return;
-          const rect = e.currentTarget.getBoundingClientRect();
-          const x = e.clientX - rect.left;
-          const percentage = Math.max(0, Math.min(1, x / rect.width));
-          const index = Math.round(percentage * (BRUSH_SIZES.length - 1));
+          const index = getIndexFromPointerX(e, e.currentTarget);
           if (index >= 0 && index < BRUSH_SIZES.length) {
             setBrushSize(BRUSH_SIZES[index].size);
           }

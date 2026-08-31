@@ -63,10 +63,17 @@ export default function App() {
     handleResize();
     const timeout = setTimeout(handleResize, 100);
 
-    window.addEventListener('resize', handleResize);
+    let resizeDebounce: ReturnType<typeof setTimeout>;
+    const debouncedResize = () => {
+      clearTimeout(resizeDebounce);
+      resizeDebounce = setTimeout(handleResize, 150);
+    };
+
+    window.addEventListener('resize', debouncedResize);
     return () => {
-      window.removeEventListener('resize', handleResize);
+      window.removeEventListener('resize', debouncedResize);
       clearTimeout(timeout);
+      clearTimeout(resizeDebounce);
     };
   }, []);
 
@@ -111,10 +118,12 @@ export default function App() {
   };
 
   const saveHistory = () => {
-    if (canvasRef.current) {
-      const data = canvasRef.current.toDataURL();
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+    requestAnimationFrame(() => {
+      const data = canvas.toDataURL();
       setHistory(prev => [...prev.slice(-19), data]);
-    }
+    });
   };
 
   const clearCanvas = () => {
@@ -159,9 +168,9 @@ export default function App() {
 
     fctx.fillStyle = '#FFFFFF';
     fctx.fillRect(0, 0, finalCanvas.width, finalCanvas.height);
+    fctx.drawImage(canvas, 0, 0);
 
     const finishSave = () => {
-        fctx.drawImage(canvas, 0, 0);
         const link = document.createElement('a');
         link.download = `mayas-painter-${Date.now()}.png`;
         link.href = finalCanvas.toDataURL('image/png');
@@ -179,12 +188,15 @@ export default function App() {
       tempImg.crossOrigin = 'anonymous';
       tempImg.src = currentTemplate.url;
       tempImg.onload = () => {
-        const scale = Math.min(finalCanvas.width / tempImg.width, finalCanvas.height / tempImg.height) * 0.8;
+        // Match the on-screen template sizing rule (h-[85%], auto width, centered)
+        const scale = (finalCanvas.height * 0.85) / tempImg.height;
         const x = (finalCanvas.width - tempImg.width * scale) / 2;
         const y = (finalCanvas.height - tempImg.height * scale) / 2;
         fctx.filter = 'grayscale(100%) brightness(0.9)';
+        fctx.globalCompositeOperation = 'multiply';
         fctx.drawImage(tempImg, x, y, tempImg.width * scale, tempImg.height * scale);
         fctx.filter = 'none';
+        fctx.globalCompositeOperation = 'source-over';
         finishSave();
       };
       tempImg.onerror = finishSave;
@@ -197,6 +209,7 @@ export default function App() {
     setCurrentTemplate(template);
     setShowTemplates(false);
     clearCanvas();
+    setHistory([]);
     confetti({
       particleCount: 50,
       spread: 60,
