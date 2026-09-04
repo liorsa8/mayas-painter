@@ -22,6 +22,7 @@ export const BRUSH_SIZES = [
 export const CATEGORIES = [
   { id: 'animals', name: 'חיות', icon: '🐾' },
   { id: 'princesses', name: 'נסיכות', icon: '👑' },
+  { id: 'family', name: 'משפחה', icon: '👨‍👩‍👧‍👦' },
 ];
 
 export interface Template {
@@ -57,5 +58,11 @@ export const TEMPLATES: Record<string, Template[]> = {
     { id: 'flower', name: 'פרח', icon: '🌸', url: '/templates/flower_v2.svg' },
     { id: 'tree', name: 'עץ', icon: '🌳', url: '/templates/tree_v2.svg' },
     { id: 'mountain', name: 'נוף', icon: '🏔️', url: '/templates/mountain_v2.svg' },
+  ],
+  family: [
+    { id: 'none_f', name: 'דף חלק', icon: '📄', url: null },
+    { id: 'mom_kids', name: 'אמא וילדים', icon: '👩‍👧‍👦', url: '/templates/family_mom_kids.png' },
+    { id: 'girl', name: 'ילדה', icon: '👧', url: '/templates/family_girl.png' },
+    { id: 'siblings', name: 'אח ואחות', icon: '🧒', url: '/templates/family_siblings.png' },
   ]
 };
