@@ -64,5 +64,8 @@ export const TEMPLATES: Record<string, Template[]> = {
     { id: 'mom_kids', name: 'אמא וילדים', icon: '👩‍👧‍👦', url: '/templates/family_mom_kids.png' },
     { id: 'girl', name: 'ילדה', icon: '👧', url: '/templates/family_girl.png' },
     { id: 'siblings', name: 'אח ואחות', icon: '🧒', url: '/templates/family_siblings.png' },
+    { id: 'beach_dad', name: 'אבא בחוף הים', icon: '🏖️', url: '/templates/family_beach_dad.png' },
+    { id: 'hallway_siblings', name: 'הליכון', icon: '🚼', url: '/templates/family_hallway_siblings.png' },
+    { id: 'popsicles', name: 'ארטיקים', icon: '🍭', url: '/templates/family_popsicles.png' },
   ]
 };
