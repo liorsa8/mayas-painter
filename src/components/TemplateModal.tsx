@@ -16,7 +16,7 @@ export const TemplateModal: React.FC<TemplateModalProps> = ({
   currentTemplateId, 
   onSelect 
 }) => {
-  const [activeCategory, setActiveCategory] = useState('animals');
+  const [activeCategory, setActiveCategory] = useState(CATEGORIES[0].id);
 
   return (
     <AnimatePresence>
@@ -48,18 +48,18 @@ export const TemplateModal: React.FC<TemplateModalProps> = ({
               </div>
 
               {/* Categories Tab */}
-              <div className="flex gap-2 p-1 bg-[#FFF9ED] rounded-xl self-start">
+              <div className="flex gap-1 sm:gap-2 p-1 bg-[#FFF9ED] rounded-xl self-start max-w-full overflow-x-auto">
                 {CATEGORIES.map(cat => (
                   <button
                     key={cat.id}
                     onClick={() => setActiveCategory(cat.id)}
-                    className={`px-4 py-2 rounded-lg font-bold text-sm transition-all flex items-center gap-2 ${
+                    className={`px-2.5 sm:px-4 py-2 rounded-lg font-bold text-xs sm:text-sm whitespace-nowrap transition-all flex items-center gap-1.5 sm:gap-2 ${
                       activeCategory === cat.id 
                         ? 'bg-[#4D96FF] text-white shadow-md' 
                         : 'text-[#5D4037] hover:bg-white/50'
                     }`}
                   >
-                    <span className="text-xl">{cat.icon}</span>
+                    <span className="text-base sm:text-xl">{cat.icon}</span>
                     {cat.name}
                   </button>
                 ))}

@@ -5,6 +5,7 @@ import {
   Palette,
   Download,
   Image as ImageIcon,
+  ZoomOut,
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import confetti from 'canvas-confetti';
@@ -14,18 +15,56 @@ import { ColorPicker } from './components/ColorPicker';
 import { BrushPicker } from './components/BrushPicker';
 import { TemplateModal } from './components/TemplateModal';
 
+const MAX_ZOOM = 4;
+
+interface PinchGesture {
+  ids: [number, number];
+  dist: number;
+  scale: number;
+  cx: number;
+  cy: number;
+  x: number;
+  y: number;
+}
+
 export default function App() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const contextRef = useRef<CanvasRenderingContext2D | null>(null);
   const containerRef = useRef<HTMLDivElement>(null);
-  
-  const [isDrawing, setIsDrawing] = useState(false);
+  const zoomLayerRef = useRef<HTMLDivElement>(null);
+  const strokeBackupRef = useRef<HTMLCanvasElement | null>(null);
+
+  const isDrawingRef = useRef(false);
+  const pointersRef = useRef(new Map<number, { x: number; y: number }>());
+  const gestureRef = useRef<PinchGesture | null>(null);
+  const viewRef = useRef({ scale: 1, x: 0, y: 0 });
+
+  const [isZoomed, setIsZoomed] = useState(false);
   const [color, setColor] = useState(COLORS[0]);
   const [brushSize, setBrushSize] = useState(26);
   const [isEraser, setIsEraser] = useState(false);
   const [history, setHistory] = useState<string[]>([]);
   const [showTemplates, setShowTemplates] = useState(false);
   const [currentTemplate, setCurrentTemplate] = useState<Template>(TEMPLATES.animals[0]);
+
+  // Resizing the canvas resets its context, so the brush settings must be re-applied from the latest values.
+  const brushRef = useRef({ strokeStyle: color, lineWidth: brushSize });
+  brushRef.current = { strokeStyle: isEraser ? '#FFFFFF' : color, lineWidth: brushSize };
+
+  const applyView = (scale: number, x: number, y: number) => {
+    const container = containerRef.current;
+    const layer = zoomLayerRef.current;
+    if (!container || !layer) return;
+
+    const s = Math.min(MAX_ZOOM, Math.max(1, scale));
+    const nx = Math.min(0, Math.max(container.clientWidth * (1 - s), x));
+    const ny = Math.min(0, Math.max(container.clientHeight * (1 - s), y));
+    viewRef.current = { scale: s, x: nx, y: ny };
+    layer.style.transform = s === 1 ? '' : `translate(${nx}px, ${ny}px) scale(${s})`;
+    setIsZoomed(s > 1);
+  };
+
+  const resetView = () => applyView(1, 0, 0);
 
   // Handle Resize and Initial Canvas Setup
   useLayoutEffect(() => {
@@ -49,7 +88,8 @@ export default function App() {
       ctx.scale(scale, scale);
       ctx.lineCap = 'round';
       ctx.lineJoin = 'round';
-      
+      Object.assign(ctx, brushRef.current);
+
       // Restore content
       const img = new Image();
       img.src = currentData;
@@ -66,7 +106,10 @@ export default function App() {
     let resizeDebounce: ReturnType<typeof setTimeout>;
     const debouncedResize = () => {
       clearTimeout(resizeDebounce);
-      resizeDebounce = setTimeout(handleResize, 150);
+      resizeDebounce = setTimeout(() => {
+        resetView();
+        handleResize();
+      }, 150);
     };
 
     window.addEventListener('resize', debouncedResize);
@@ -79,42 +122,134 @@ export default function App() {
 
   // Sync canvas settings
   useEffect(() => {
-    if (contextRef.current) {
-      contextRef.current.strokeStyle = isEraser ? '#FFFFFF' : color;
-      contextRef.current.lineWidth = brushSize;
-    }
+    if (contextRef.current) Object.assign(contextRef.current, brushRef.current);
   }, [color, brushSize, isEraser]);
 
   const getCoordinates = (e: React.PointerEvent) => {
     const rect = canvasRef.current?.getBoundingClientRect();
     if (!rect) return { offsetX: 0, offsetY: 0 };
+    const { scale } = viewRef.current;
     return {
-      offsetX: e.clientX - rect.left,
-      offsetY: e.clientY - rect.top,
+      offsetX: (e.clientX - rect.left) / scale,
+      offsetY: (e.clientY - rect.top) / scale,
     };
   };
 
   const startDrawing = (e: React.PointerEvent) => {
-    const { offsetX, offsetY } = getCoordinates(e);
-    if (!contextRef.current) return;
+    const canvas = canvasRef.current;
+    const ctx = contextRef.current;
+    if (!canvas || !ctx) return;
 
-    contextRef.current.beginPath();
-    contextRef.current.moveTo(offsetX, offsetY);
-    setIsDrawing(true);
+    // Keep a copy so a stroke can be undone if a second finger turns it into a pinch.
+    const backup = (strokeBackupRef.current ??= document.createElement('canvas'));
+    const backupCtx = backup.getContext('2d');
+    if (backupCtx) {
+      if (backup.width !== canvas.width || backup.height !== canvas.height) {
+        backup.width = canvas.width;
+        backup.height = canvas.height;
+      } else {
+        backupCtx.clearRect(0, 0, backup.width, backup.height);
+      }
+      backupCtx.drawImage(canvas, 0, 0);
+    }
+
+    const { offsetX, offsetY } = getCoordinates(e);
+    ctx.beginPath();
+    ctx.moveTo(offsetX, offsetY);
+    isDrawingRef.current = true;
   };
 
   const draw = (e: React.PointerEvent) => {
-    if (!isDrawing || !contextRef.current) return;
+    if (!isDrawingRef.current || !contextRef.current) return;
     const { offsetX, offsetY } = getCoordinates(e);
     contextRef.current.lineTo(offsetX, offsetY);
     contextRef.current.stroke();
   };
 
   const stopDrawing = () => {
-    if (!isDrawing) return;
+    if (!isDrawingRef.current) return;
     contextRef.current?.closePath();
-    setIsDrawing(false);
+    isDrawingRef.current = false;
     saveHistory();
+  };
+
+  const cancelStroke = () => {
+    if (!isDrawingRef.current) return;
+    isDrawingRef.current = false;
+
+    const canvas = canvasRef.current;
+    const ctx = contextRef.current;
+    const backup = strokeBackupRef.current;
+    if (!canvas || !ctx || !backup) return;
+
+    ctx.save();
+    ctx.setTransform(1, 0, 0, 1, 0, 0);
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.drawImage(backup, 0, 0);
+    ctx.restore();
+  };
+
+  const toContainerPoint = (clientX: number, clientY: number) => {
+    const container = containerRef.current!;
+    const rect = container.getBoundingClientRect();
+    return { x: clientX - rect.left - container.clientLeft, y: clientY - rect.top - container.clientTop };
+  };
+
+  const beginPinch = () => {
+    const [a, b] = [...pointersRef.current.entries()];
+    const center = toContainerPoint((a[1].x + b[1].x) / 2, (a[1].y + b[1].y) / 2);
+    const { scale, x, y } = viewRef.current;
+    gestureRef.current = {
+      ids: [a[0], b[0]],
+      dist: Math.max(1, Math.hypot(a[1].x - b[1].x, a[1].y - b[1].y)),
+      scale, x, y,
+      cx: center.x,
+      cy: center.y,
+    };
+  };
+
+  const updatePinch = () => {
+    const g = gestureRef.current;
+    const a = g && pointersRef.current.get(g.ids[0]);
+    const b = g && pointersRef.current.get(g.ids[1]);
+    if (!g || !a || !b) return;
+
+    const center = toContainerPoint((a.x + b.x) / 2, (a.y + b.y) / 2);
+    const scale = Math.min(MAX_ZOOM, Math.max(1, g.scale * Math.hypot(a.x - b.x, a.y - b.y) / g.dist));
+    // Keep the artwork point that was under the fingers at the start under them now.
+    const anchorX = (g.cx - g.x) / g.scale;
+    const anchorY = (g.cy - g.y) / g.scale;
+    applyView(scale, center.x - anchorX * scale, center.y - anchorY * scale);
+  };
+
+  const handlePointerDown = (e: React.PointerEvent) => {
+    pointersRef.current.set(e.pointerId, { x: e.clientX, y: e.clientY });
+    if (pointersRef.current.size === 1) {
+      startDrawing(e);
+    } else if (pointersRef.current.size === 2) {
+      cancelStroke();
+      beginPinch();
+    }
+  };
+
+  const handlePointerMove = (e: React.PointerEvent) => {
+    if (pointersRef.current.has(e.pointerId)) {
+      pointersRef.current.set(e.pointerId, { x: e.clientX, y: e.clientY });
+    }
+    if (gestureRef.current) {
+      updatePinch();
+    } else {
+      draw(e);
+    }
+  };
+
+  const handlePointerEnd = (e: React.PointerEvent) => {
+    pointersRef.current.delete(e.pointerId);
+    if (gestureRef.current) {
+      if (gestureRef.current.ids.includes(e.pointerId)) gestureRef.current = null;
+      return;
+    }
+    stopDrawing();
   };
 
   const saveHistory = () => {
@@ -210,6 +345,7 @@ export default function App() {
     setShowTemplates(false);
     clearCanvas();
     setHistory([]);
+    resetView();
     confetti({
       particleCount: 50,
       spread: 60,
@@ -268,34 +404,46 @@ export default function App() {
           >
             <Trash2 className="w-5 h-5 sm:w-6 sm:h-6" />
           </button>
+          {isZoomed && (
+            <button
+              onClick={resetView}
+              title="איפוס זום"
+              className="p-3 bg-white rounded-xl shadow-lg text-[#4D96FF] border-b-2 border-gray-100 active:translate-y-0.5 active:border-b-0 hover:bg-blue-50 transition-all"
+            >
+              <ZoomOut className="w-5 h-5 sm:w-6 sm:h-6" />
+            </button>
+          )}
         </div>
 
         <div 
           ref={containerRef}
           className="relative w-full h-full max-w-full bg-white rounded-[2rem] shadow-xl border-4 sm:border-8 border-white overflow-hidden flex items-center justify-center p-0"
         >
-          <canvas
-            ref={canvasRef}
-            onPointerDown={startDrawing}
-            onPointerMove={draw}
-            onPointerUp={stopDrawing}
-            onPointerLeave={stopDrawing}
-            className="absolute z-10 w-full h-full touch-none cursor-crosshair"
-          />
+          <div ref={zoomLayerRef} className="absolute inset-0" style={{ transformOrigin: '0 0' }}>
+            <canvas
+              ref={canvasRef}
+              onPointerDown={handlePointerDown}
+              onPointerMove={handlePointerMove}
+              onPointerUp={handlePointerEnd}
+              onPointerCancel={handlePointerEnd}
+              onPointerLeave={handlePointerEnd}
+              className="absolute z-10 w-full h-full touch-none cursor-crosshair"
+            />
 
-          <AnimatePresence mode="wait">
-            {currentTemplate.url && (
-              <motion.img
-                key={currentTemplate.id}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                src={currentTemplate.url}
-                className="absolute z-20 w-auto h-[85%] object-contain pointer-events-none select-none p-4 left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 mix-blend-multiply"
-                draggable={false}
-              />
-            )}
-          </AnimatePresence>
+            <AnimatePresence mode="wait">
+              {currentTemplate.url && (
+                <motion.img
+                  key={currentTemplate.id}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  src={currentTemplate.url}
+                  className="absolute z-20 w-auto h-[85%] object-contain pointer-events-none select-none p-4 left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 mix-blend-multiply"
+                  draggable={false}
+                />
+              )}
+            </AnimatePresence>
+          </div>
         </div>
       </main>
 

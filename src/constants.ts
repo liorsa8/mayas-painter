@@ -22,9 +22,9 @@ export const BRUSH_SIZES = [
 ];
 
 export const CATEGORIES = [
+  { id: 'family', name: 'משפחה', icon: '👨‍👩‍👧‍👦' },
   { id: 'animals', name: 'חיות', icon: '🐾' },
   { id: 'princesses', name: 'נסיכות', icon: '👑' },
-  { id: 'family', name: 'משפחה', icon: '👨‍👩‍👧‍👦' },
 ];
 
 export interface Template {
