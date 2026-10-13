@@ -4,6 +4,7 @@ import path from 'path';
 import {defineConfig} from 'vite';
 
 export default defineConfig({
+  base: process.env.GITHUB_PAGES ? '/mayas-painter/' : '/',
   plugins: [react(), tailwindcss()],
   resolve: {
     alias: {
